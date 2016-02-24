@@ -1,0 +1,278 @@
+
+/***********************************animation*************************************/
+/*8 poverties of animation:initial value：：：
+animation-name(动画名称): none-默认/ @keyframes
+animation-duration(动画持续时间): 0s-默认/6s/120ms
+animation-timing-function（动画的速度曲线）: ease-默认/liner(从头到尾速度相同)/ease(慢-快-慢)/ease-in(慢--)/ease-out(--慢)/ease-in-out(慢--慢)/cubic-bezier(n,n,n,n)
+animation-delay(动画开始前的延迟时间): 0s-默认/3s/4ms
+animation-iteration-count(动画播放次数）: 1-默认/n(若干次)/infinite(无限次)
+animation-direction(是否该轮流反向播放动画): normal-默认(正常播放)/reverse(轮流反向播放)/alternate/alternate-reverse/normal,reverse/alternate,reverse,normal
+animation-fill-mode(动画在播放之前或之后，动画效果是否可见）: none-默认/forwards（动画完成后保持最后一个属性）/
+                    backwards（在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值）/both（向前和向后填充模式都被应用）
+animation-play-state（规定动画正在运行还是暂停）: running-默认(动画正在播放)/paused(动画已暂停)
+*/
+
+/********************************@keyframes****************************************/
+/*
+ 规定时间线关键帧位置:
+  @-webkit-keyframes animation-name {
+  0% { top: 0; left: 0; }
+  30% { top: 50px; }
+  68%, 72% { left: 50px; }
+  100% { top: 100px; left: 100%; }
+}
+/from=0%,to=100%/
+ 可使用transform属性:
+  @-webkit-keyframes animation-name{
+    from{}
+    to{-webkit-transform:translateX(-100%);)
+  }
+  */
+/*********************************transform******************************************/
+/*
+none	定义不进行转换。	测试
+matrix(n,n,n,n,n,n)	定义 2D 转换，使用六个值的矩阵。	测试
+matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)	定义 3D 转换，使用 16 个值的 4x4 矩阵。	
+translate(x,y)	定义 2D 转换。	测试
+translate3d(x,y,z)	定义 3D 转换。	
+translateX(x)	定义转换，只是用 X 轴的值。	测试
+translateY(y)	定义转换，只是用 Y 轴的值。	测试
+translateZ(z)	定义 3D 转换，只是用 Z 轴的值。	
+scale(x,y)	定义 2D 缩放转换。	测试
+scale3d(x,y,z)	定义 3D 缩放转换。	
+scaleX(x)	通过设置 X 轴的值来定义缩放转换。	测试
+scaleY(y)	通过设置 Y 轴的值来定义缩放转换。	测试
+scaleZ(z)	通过设置 Z 轴的值来定义 3D 缩放转换。	
+rotate(angle)	定义 2D 旋转，在参数中规定角度。	测试
+rotate3d(x,y,z,angle)	定义 3D 旋转。	
+rotateX(angle)	定义沿着 X 轴的 3D 旋转。	测试
+rotateY(angle)	定义沿着 Y 轴的 3D 旋转。	测试
+rotateZ(angle)	定义沿着 Z 轴的 3D 旋转。	测试
+skew(x-angle,y-angle)	定义沿着 X 和 Y 轴的 2D 倾斜转换。	测试
+skewX(angle)	定义沿着 X 轴的 2D 倾斜转换。	测试
+skewY(angle)	定义沿着 Y 轴的 2D 倾斜转换。	测试
+perspective(n)	为 3D 转换元素定义透视视图。	测试
+*/
+/*********************other effect********************************************************/
+/*
+opacity:1/1.0/0.6  定义元素透明度
+/******************************动画效果自编库-基础库********************************************/
+/*从左出来 1-2*/
+.move_fromleft{
+    -webkit-animation: movefromleft 1s ease 0s 1 normal both running;
+}
+@-webkit-keyframes movefromleft{
+    from{-webkit-transform: translateX(-200%);}
+    to{}
+}
+/*边出现边从左出来*/
+.move_appearWfromleft{
+    -webkit-animation: appearWfromleft 2s ease-out both;
+}
+@-webkit-keyframes appearWfromleft{
+    from{opacity:0;-webkit-transform: translateX(-150%);}
+    to{}
+}
+/*过一会儿(3s)再从左出来*/
+.move_wait2fromleft{
+    -webkit-animation:wait2fromleft 5s ease both;
+}
+@-webkit-keyframes wait2fromleft{
+    0%{-webkit-transform:translateX(-200%);}
+    60%{-webkit-transform:translateX(-200%);}
+    100%{}
+}
+/*过一会儿(2s)再从左出来,4-3*/
+.move_wait2fromleft{
+    -webkit-animation:wait2fromleft 3s ease both;
+}
+@-webkit-keyframes wait2fromleft{
+    0%{-webkit-transform:translateX(-200%);}
+    60%{-webkit-transform:translateX(-200%);}
+    100%{}
+}
+/*从右出来*/
+.move_fromright{
+    -webkit-animation: movefromright 1s ease 0s 1 normal both running;
+}
+@-webkit-keyframes movefromright{
+    from{-webkit-transform: translateX(200%);}
+    to{}
+}
+/*边出现边从右出来*/
+.move_appearWfromright{
+    -webkit-animation: appearWfromright 2s ease-out both;
+}
+@-webkit-keyframes appearWfromright{
+    from{opacity:0;-webkit-transform: translateX(150%);}
+    to{}
+}
+/*过一会儿(3s)再从右出来*/
+.move_wait2fromright{
+    -webkit-animation:wait2fromright 5s ease both;
+}
+@-webkit-keyframes wait2fromright{
+    0%{-webkit-transform:translateX(200%);}
+    60%{-webkit-transform:translateX(200%);}
+    100%{}
+}
+/*从上出来 1-1*/
+.move_fromtop{
+    -webkit-animation: movefromtop 1s ease 0s 1 normal both running;
+}
+@-webkit-keyframes movefromtop{
+    from{-webkit-transform: translateY(-200%);}
+    to{}
+}
+/*边出现边从上出来*/
+.move_appearWfromtop{
+    -webkit-animation: appearWfromtop 1s ease-out both;
+}
+@-webkit-keyframes appearWfromtop{
+    from{opacity:0;-webkit-transform: translateY(-150%);}
+    to{}
+}
+/*过一会儿(3s)再从上出来*/
+.move_wait2fromtop{
+    -webkit-animation:wait2fromtop 5s ease both;
+}
+@-webkit-keyframes wait2fromtop{
+    0%{-webkit-transform:translateY(-200%);}
+    60%{-webkit-transform:translateY(-200%);}
+    100%{}
+}
+/*从下出来*/
+.move_frombottom{
+    -webkit-animation: movefrombottom 2s ease 0s 1 normal both running;
+}
+@-webkit-keyframes movefrombottom{
+    from{-webkit-transform: translateY(200%);}
+    to{}
+}
+/*边出现边从下出来*/
+.move_appearWfrombot{
+    -webkit-animation: appearWfrombot 2s ease-out both;
+}
+@-webkit-keyframes appearWfrombot{
+    from{opacity:0;-webkit-transform: translateY(150%);}
+    to{}
+}
+/*过一会儿(2s)再从下出来 3-3*/
+.move_wait2frombot{
+    -webkit-animation:wait2frombot 3s ease both;
+}
+@-webkit-keyframes wait2frombot{
+    0%{-webkit-transform:translateY(200%);}
+    66%{-webkit-transform:translateY(200%);}
+    100%{}
+}
+/*边出现边从左上出来  4-1*/
+.move_appWfromlt{
+    -webkit-animation: appWfromlt 1s ease-out both;
+}
+@-webkit-keyframes appWfromlt{
+    from{-webkit-transform: translate(-200%,-200%);opacity:0;}
+    to{}
+}
+/*2D原地旋转*/
+.move_rotate{
+    -webkit-animation: moverotate 2s ease 0s 1 normal both running;
+}
+@-webkit-keyframes moverotate{
+    from{}
+    to{-webkit-transform: rotate(360deg);}
+}
+/*边出现边2D原地旋转*/
+.move_appearWrotate{
+    -webkit-animation: appearWrotate 2s ease-out 0s 1 normal both running;
+}
+@-webkit-keyframes appearWrotate{
+    from{opacity:0;}
+    to{-webkit-transform: rotate(360deg);}
+}
+/*过一会儿(1s)再边出现边原地旋转*/
+.move_wait2appWrot{
+    -webkit-animation: wait2appWrot 2s ease both;
+}
+@-webkit-keyframes wait2appWrot{
+    0%{opacity:0;}
+    50%{opacity: 0;}
+    100%{-webkit-transform:rotate(360deg);}
+}
+/*先出现，再2D原地旋转*/
+.move_appear2rotate{
+    -webkit-animation: appear2rotate 4s ease 0s 1 normal both running;
+}
+@-webkit-keyframes appear2rotate{
+    0%{opacity:0;-webkit-transform: rotate(0deg);}
+    50%{opacity:1;-webkit-transform: rotate(0deg);}
+    100%{opacity:1;-webkit-transform: rotate(360deg);}
+}
+/*3DX轴旋转*/
+.move_rotateX{
+    -webkit-animation: rotateX 2s ease 0s 1 normal both running;
+}
+@-webkit-keyframes rotateX{
+    0%{-webkit-transform: rotateX(0deg);}
+    /*50%{-webkit-transform: rotateX(180deg);}*/
+    100%{-webkit-transform: rotateX(360deg);}
+}
+/*3DY轴旋转*/
+.move_rotateY{
+    -webkit-animation: rotateY 2s ease-out 0s 1 normal both running;
+}
+@-webkit-keyframes rotateY{
+    from{-webkit-transform:rotateY(0deg);}
+    to{-webkit-transform: rotateY(360deg);}
+}
+/*3DZ轴旋转*/  /*和2D旋转效果无差*/
+.move_rotateZ{
+    -webkit-animation: rotateZ 2s ease-out 0s 1 normal both running;
+}
+@-webkit-keyframes rotateZ{
+    from{-webkit-transform:rotateZ(0deg);}
+    to{-webkit-transform: rotateZ(360deg);}
+}
+/*原地从中心放大*/
+.move_zoomin{
+    -webkit-animation: zoomin 2s ease-in 0.2s 1 normal both;
+}
+@-webkit-keyframes zoomin{
+    from{-webkit-transform:scale(0.5,0.5);}
+    to{-webkit-transform:scale(1.1,1.1);}
+}
+/*边出现边放大*/
+.move_appearWzoomin{
+    -webkit-animation: appearWzoomin 3s ease-out 0s 1 normal both;
+}
+@-webkit-keyframes appearWzoomin{
+    from{-webkit-transform: scale(.6,.6);opacity: 0;}
+    to{-webkit-transform: scale(1.1,1.1);opacity: 1;}
+}
+/*过1s边出现边放大 4-2*/
+.move_wait2appWzin{
+    -webkit-animation: wait2appWzin 2s ease-out both;
+}
+@-webkit-keyframes wait2appWzin{
+    0%{-webkit-transform: scale(.6,.6);opacity:0;}
+    50%{-webkit-transform: scale(.6,.6);opacity: 0;}
+    100%{-webkit-transform: scale(1.1,1.1);opacity: 1;}
+}
+/*先X轴放大再Y轴放大*/
+.move_zoominX2zoominY{
+    -webkit-animation: zoominX2zoominY 3s ease-out 0s 1 both;
+}
+@-webkit-keyframes zoominX2zoominY{
+  0%{}
+  50%{-webkit-transform: scaleX(1.3);}
+  100%{-webkit-transform: scaleY(1.3);}  /*没指定的参数，X或Y,就默认是1，故不是连续变化的*/
+}
+/*先X轴放大再Y轴放大连续*/
+.move_zoominX2zoominY1{
+    -webkit-animation:zoominX2zoominY1 3s ease-out both;
+}
+@-webkit-keyframes zoominX2zoominY1{
+    0%{-webkit-transform: scale(.6,.6);}
+    50%{-webkit-transform: scale(1,.6);}
+    100%{-webkit-transform: scale(1,1);}
+}
