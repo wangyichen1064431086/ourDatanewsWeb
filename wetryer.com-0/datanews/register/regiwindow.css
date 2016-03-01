@@ -44,7 +44,7 @@ body{
     left: 0px;
     width: 100%;
     height: 50px;
-    font: 19px 华文行楷, sans-serif;
+    font: 19px '华文行楷', sans-serif;
     line-height:50px;
     text-align: center;
     
@@ -86,7 +86,7 @@ body{
     left: 10%;
     width: 80%;
     height: 50px;
-    font: 16px 黑体, sans-serif;
+    font: 16px '黑体', sans-serif;
     line-height: 50px;/*line-height要放在font的后面*/
     
     /*border: thin solid red;*/
@@ -111,7 +111,7 @@ body{
     left: 0%;
     width: 100%;
     height: 40px;
-    font: 18px 黑体,serif;
+    font: 18px '黑体',serif;
     line-height: 40px;
     
     /*border: thin solid blue;*/
@@ -124,7 +124,7 @@ body{
     left: 0%;
     width: 100%;
     height: 40px;
-    font: 18px 黑体,serif;
+    font: 18px '黑体',serif;
     line-height: 40px;
     
     /*border: thin solid blue;*/
@@ -137,7 +137,7 @@ body{
     left: 20%;
     height: 90%;/*设为100%会超出父元素*/
     width: 78%;/*设为80%会超出父元素*/
-    font: 16px 宋体,serif;
+    font: 16px '宋体',serif;
     
     border: thin solid lightgray;/*带设计圆角、阴影边框*/
 }
@@ -149,7 +149,7 @@ body{
     left: 0%;
     width: 100%;
     height: 40px;
-    font: 18px 黑体,serif;
+    font: 18px '黑体',serif;
     line-height: 40px;
     text-align: center;
     
@@ -201,7 +201,7 @@ body{
     text-decoration:none;
     width: 50%;
     height: 38px;
-    font: 14px 宋体,serif;
+    font: 14px '宋体',serif;
     line-height: 38px;
     text-align: center;
     color: gray;
@@ -223,22 +223,12 @@ body{
     border-left: thin solid lightgray;
     background-color: white;
     
-    font: 18px 黑体,serif;
+    font: 18px '黑体',serif;
     line-height: 20px;
     text-align: center;
     outline: none;
 }
-/*
-#close button{
-    position: absolute;/*父元素为absolute,子元素想根据父元素进行absolute定位，就必须也要自己设置成absolute
-    margin: 0px;
-    padding: 0px;
-    top: 0px;
-    width: 100%;
-    height: 20px;
 
-  
-}*/
    /******************************* border显隐控制************************************/
    /*
     * :not(#slogan) :not(body){ /*否定多个的用法，好像否定的选择器不能是复合选择器

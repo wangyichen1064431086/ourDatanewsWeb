@@ -88,11 +88,6 @@ function cleanWelcome(e) {
 }   
 */
 
-
-
-
-/*****************************退出时清除localStorage的welcome************************/
-
 /***********************************旋转木马效果**********************************************/
 var calButtons=document.querySelectorAll("#myCarButtons button");
 var calContents=new Array();
@@ -141,7 +136,7 @@ function showCalContent(e) {
     }
     pressedBu.style.setProperty("background-color","#9CCD64");
     
-    timeOutBu=window.setTimeout(//按下按钮等待2000ms后无其他操作，则再次开启间隔计时器intervalBu
+    timeOutBu=window.setTimeout(//按下按钮等待3000ms后无其他操作，则再次开启间隔计时器intervalBu
         startIntervalBu,
         3000
     );
@@ -194,9 +189,9 @@ intervalBu=window.setInterval(//循环切换当前按钮及其对应图片的计
     
 /**********************内容排列区域图标:鼠标放上去，会形成一波光晕******************************/
     var sectionLogos=document.querySelectorAll(".sectionLogo");
-   //被z-index遮住的元素鼠标放上去不能感应到该元素？？
+   //被z-index遮住的元素鼠标放上去不能感应到该元素？？是的
     
-    for(var i=0;i<sectionLogos.length;i++){
+    for(var i=0,len=sectionLogos.length;i<len;i++){
         sectionLogos[i].onmouseenter=addWave;//不能用onmouseover,这里虽然父元素和子元素区域重合，但重合部分默认获取的就是子元素了？？
         sectionLogos[i].onmouseleave=deleteWave;
     }
@@ -225,6 +220,8 @@ intervalBu=window.setInterval(//循环切换当前按钮及其对应图片的计
             $(".back2").removeClass("logoWave");
         }
     }
+/*******************点击对应的“阅读更多"****************************************/
+
 
 /*********************************登录弹窗****************************************/
 var regiBlock=document.getElementById("changeDiv");

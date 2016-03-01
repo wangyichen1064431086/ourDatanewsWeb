@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Datanews Studio</title>
+    <link rel="shortcut icon" href="../../common/wetryer.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="datanews.css">
+    <script src="../../common/jquery-2.1.4.js"></script>
+    <!--defer只对外部脚本起作用，将脚本的加载和执行推迟到HTML文档所有元素都解析后-->
+                                               <!--async可异步执行脚步，即边解析html文档，边加载和执行脚本-->
+    
+  </head>
+
+  <body>
+    <script src="datanews.js"></script>
+    <nav>
+      <ul class="navrow">
+        <li class="logofont">DataNews Studio</li>
+        <li class="navoption"><a href="#">首页</a></li>
+        <li class="navoption"><a target="_blank" href="../articles/articles.html">精品文章</a></li>
+
+        <li class="navoption"><a>关于我们</a></li>
+       
+        <li class="navoption"><a target="_blank" href="#mine">我的工作室</a></li>
+        
+        <li class="regi" id="regi"><a id="beforeRegi" target="regiWindow" href="../register/regiwindow.html">登录/注册</a></li>
+
+      </ul>
+      <ul class="dropdown">
+         <li><a target="_blank" href="#knowus">认识我们</a></li>
+         <li><a target="_blank" href="#joinus">加入我们</a></li>
+      </ul>
+
+      
+    </nav>
+    
+    <div id="myCarousel">
+      <div id="myCarContent">
+        
+      </div>
+      <div id="myCarButtons">
+        <button id="myCarBu0" class="aniBu0"></button>
+        <button id="myCarBu1" class="aniBu1"></button>
+        <button id="myCarBu2" class="aniBu2"></button>
+      </div>
+    </div>
+    
+    <p id="showCount"><!-- 方便查看计时情况 ,平时可设置css的display为none-->
+      0
+    </p>
+    
+    <div id="iWill">
+      <button class="iWillBu">我要投稿</button>
+    </div>
+    
+    <div id="articleSection">
+      <div id="section0">
+        <div class="sectionLogo">
+          <img src="pic/news.png" alt="logoNews"/>
+          <div class="back0"></div>
+        </div>
+        <p class="sectionTitle">
+          数据新闻资讯
+        </p>
+        <div class="sectionList">
+          <p><a href="#">文章1</a></p>
+          <p><a href="#">文章2</a></p>
+          <p><a href="#">文章3</a></p>
+        </div>
+        <div class="sectionReadMore">
+          <a target="_blank" href="../articles/articles.html">阅读更多>></a>
+        </div>
+      </div>
+      <div id="section1">
+        <div class="sectionLogo">
+          <img src="pic/notebookAndPen.png" alt="logoNews"/>
+          <div class="back1"></div>
+        </div>
+        <p class="sectionTitle">
+          经典作品赏析
+        </p>
+        <div class="sectionList">
+          <p><a href="#">文章1</a></p>
+          <p><a href="#">文章2</a></p>
+          <p><a href="#">文章3</a></p>
+        </div>
+        <div class="sectionReadMore">
+          <a target="_blank" href="../articles/articles.html">阅读更多>></a>
+        </div>
+      </div>
+      <div id="section2">
+        <div class="sectionLogo">
+           <img src="pic/treasureBox.png" alt="logoNews"/>
+           <div class="back2"></div>
+        </div>
+        <p class="sectionTitle">
+          实用技能寻宝
+        </p>
+        <div class="sectionList">
+          <p><a href="#">文章1</a></p>
+          <p><a href="#">文章2</a></p>
+          <p><a href="#">文章3</a></p>
+        </div>
+        <div class="sectionReadMore">
+          <a target="_blank" href="../articles/articles.html">阅读更多>></a>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div id="changeDiv">
+      <iframe  id="register" name="regiWindow"  scrolling="no">
+        
+      </iframe>
+    </div>
+        
+    <script src="datanews.js"></script>
+    <!--<script defer src="datanews1.js"></script>-->
+  </body>
+</html>
+
