@@ -57,6 +57,7 @@ function handleLogin(e) {
 function myResponse() {
     if (htr1.readyState==4) {
         if ((htr1.status>=200&&htr1.status<300)||htr1.status==304) {
+            alert("successful");
             window.parent.document.getElementById("regi").innerHTML=htr1.responseText;
             window.parent.document.getElementById("changeDiv").style.setProperty("display","none");
             
@@ -64,9 +65,10 @@ function myResponse() {
             localStorage.setItem("welcome",welcomeValue);
         }
         else{
+            alert("unsuccessful");
             window.parent.document.getElementById("regi").innerHTML="Unsuccessfull ";
             window.parent.document.getElementById("changeDiv").style.setProperty("display","none");
-            //alert("unsuccessful");
+            
         }
         
     }

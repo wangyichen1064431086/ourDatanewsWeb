@@ -221,3 +221,22 @@ for (var i=0,len=readmoreBtns.length;i<len;i++) {
         }
     })(i);   
 }
+/******************点击导航栏的”精品文章“设置localStorage的readGoto为option0，即从此处进入article页面激活的是新闻资讯*/
+var goodArticle=document.getElementById("goodArticle");
+goodArticle.onclick=function(){
+    localStorage.setItem("readGoto","option0");
+}
+
+/*******************点击“我要投稿”按钮，检查是否登录，如没有登录，先登录；如已经登录，跳转到“我的工作室”界面***/
+var iWill=document.getElementsByClassName("iWillBu")[0];
+
+iWill.onclick=function(){
+    if (!(localStorage.getItem("welcome"))) {
+        regiBlock.style.setProperty("display","block");
+    }
+    else{
+        localStorage.setItem("myStudioGoto","option0");
+        window.open("../myStudio/index/index.html","_blank");
+    }
+    
+}

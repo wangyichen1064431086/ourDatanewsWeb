@@ -135,6 +135,7 @@ function selectUser(db,req,res) {
                     }
                     else{
                         console.log("select seccussful");
+                        console.log(rows);
                         console.info(rows);
                         toBrowser1(res,rows);
                     }

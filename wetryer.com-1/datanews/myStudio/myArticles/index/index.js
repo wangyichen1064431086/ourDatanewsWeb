@@ -74,9 +74,9 @@ for(var i=0,len=articleOptions.length;i<len;i++){
     articleOptions[i].index=i;
     articleOptions[i].onclick=function(){
       this.style.setProperty("background-color","#9CCD64");
-      for(var i=0;i<len;i++){
-            if (i!=this.index) {
-                articleOptions[i].style.setProperty("background-color","lightgray");
+      for(var j=0;j<len;j++){
+            if (j!=this.index) {
+                articleOptions[j].style.setProperty("background-color","lightgray");
             }
         } 
       
@@ -99,52 +99,27 @@ switch (readGotoValue) {
         articleOptions[0].style.setProperty("background-color","#9CCD64");
         articleOptions[1].style.setProperty("background-color","lightgray");
         articleOptions[2].style.setProperty("background-color","lightgray");
-        articleContent.src="../newsOverview/index/index.html";
+        articleContent.src="../writeNewArticle/writeNewArticle.html";
         break;
     case "option1":
         articleOptions[0].style.setProperty("background-color","lightgray");
         articleOptions[1].style.setProperty("background-color","#9CCD64");
         articleOptions[2].style.setProperty("background-color","lightgray");
-        articleContent.src="../workAppreciation/index/index.html";
+        articleContent.src="../myArticles/index/index.html";
         break;
     case "option2":
         articleOptions[0].style.setProperty("background-color","lightgray");
         articleOptions[1].style.setProperty("background-color","lightgray");
         articleOptions[2].style.setProperty("background-color","#9CCD64");
-        articleContent.src="../treasureHunt/index/index.html";
+        articleContent.src="../myInfo/myInfo.html";
         break;
     default:
         articleOptions[0].style.setProperty("background-color","#9CCD64");
         articleOptions[1].style.setProperty("background-color","lightgray");
         articleOptions[2].style.setProperty("background-color","lightgray");
-        articleContent.src="../newsOverview/index/index.html";
+        articleContent.src="../writeNewArticle/writeNewArticle.html";
 }
-/*
-switch (true) {
-    case readGotoValue=="option0":
-        articleOptions[0].style.setProperty("background-color","#9CCD64");
-        articleOptions[1].style.setProperty("background-color","lightgray");
-        articleOptions[2].style.setProperty("background-color","lightgray");
-        articleContent.src="../newsOverview/index/index.html";
-        break;
-    case readGotoValue=="option1":
-        articleOptions[0].style.setProperty("background-color","lightgray");
-        articleOptions[1].style.setProperty("background-color","#9CCD64");
-        articleOptions[2].style.setProperty("background-color","lightgray");
-        articleContent.src="../workAppreciation/index/index.html";
-        break;
-    case readGotoValue=="option2":
-        articleOptions[0].style.setProperty("background-color","lightgray");
-        articleOptions[1].style.setProperty("background-color","lightgray");
-        articleOptions[2].style.setProperty("background-color","#9CCD64");
-        articleContent.src="../treasureHunt/index/index.html";
-        break;
-    default:
-        articleOptions[0].style.setProperty("background-color","#9CCD64");
-        articleOptions[1].style.setProperty("background-color","lightgray");
-        articleOptions[2].style.setProperty("background-color","lightgray");
-        articleContent.src="../newsOverview/index/index.html";
-}*/
+
 
 /******************点击导航栏的”精品文章“设置localStorage的readGoto为option0，即从此处进入article页面激活的是新闻资讯*/
 var goodArticle=document.getElementById("goodArticle");
