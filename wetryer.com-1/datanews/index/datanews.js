@@ -15,7 +15,7 @@ for(var i=0;i<navoptions.length;i++){
 function chColorShowSub(e) {
     e.target.style.background='#228B22';
    // dropdown.style.removeProperty('display');//为何不行？？ //dropdown.style.display='none';也不行
-    dropdown.style.setProperty("disfplay","block");
+    dropdown.style.setProperty("display","block");
   
 }
 
