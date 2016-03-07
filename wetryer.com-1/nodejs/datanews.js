@@ -100,20 +100,21 @@ function addUser(db,req,res) {
                         throw err;
                     }
                     else{
-                        userId=rows[0].user_id;
+                        userId=(rows[0].user_id).toString;
                         console.log(userId);
-                        tableName="user_"+userId;
+                        tableName='user_'+userId;
                         console.log(tableName);
+                        tableName=tableName.toString();
                     }
                 }
             );
-            db.query(
-                "CREATE TABLE IF NOT EXISTS ? "+
-                "(arti_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,"+
-                "title VARCHAR(50) NOT NULL,"+
-                "maintext LONGTEXT,"+
-                "time TIMESTAMP)",
-                [tableName],
+            var newTableName=tableName;//为什么一定要newTableName='table_0'才行呢，这样赋值就不行了呢
+            db.query(//动态拼接只能用单引号
+                'CREATE TABLE IF NOT EXISTS '+newTableName+
+                '(arti_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, '+
+                'title VARCHAR(50) NOT NULL, '+
+                'maintext LONGTEXT, '+
+                'time TIMESTAMP)',
                 function (err) {
                     if (err) {
                         throw err;
@@ -121,8 +122,7 @@ function addUser(db,req,res) {
                     else{
                         console.log("New user's article table has successfully created.")
                     }
-                }
-                
+                }  
             );
            
         }
