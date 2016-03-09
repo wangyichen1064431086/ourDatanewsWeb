@@ -9,7 +9,6 @@ var db=mysql.createConnection({
     database:'datanews'
 });
 
-
 var server=http.createServer(function(req,res){
     var contentType=req.headers["content-type"];//读取请求头的Content-Type字段
     switch (req.method) {
@@ -86,44 +85,48 @@ function addUser(db,req,res) {
                     else{
                         console.log("seccussful");
                         toBrowser(res);
+                        var userId;
+                        var tableName;
+                        db.query(
+                            "SELECT user_id FROM userInfo "+
+                            "WHERE identity=?",
+                            [dataObj.identity],
+                            function (err,rows) {
+                                if (err) {
+                                    throw err;
+                                }
+                                else{
+                                    userId=rows[0].user_id;
+                                    console.log(userId);
+                                    tableName='user_'+userId;
+                                    console.log(tableName);
+                                    //tableName=tableName.toString();
+                                    
+                                    db.query(//动态拼接只能用单引号
+                                        'CREATE TABLE IF NOT EXISTS '+tableName+
+                                        ' (arti_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, '+
+                                        'title VARCHAR(50) NOT NULL, '+
+                                        'maintext LONGTEXT, '+
+                                        'time TIMESTAMP)',
+                                        function (err) {
+                                            if (err) {
+                                                throw err;
+                                            }
+                                            else{
+                                                console.log("New user's article table has successfully created.")
+                                            }
+                                        }  
+                                    );
+                                }
+                            }
+                        );
                     }
                 }
             );
-            var userId;
-            var tableName;
-            db.query(
-                "SELECT user_id FROM userInfo "+
-                "WHERE identity=?",
-                [dataObj.identity],
-                function (err,rows) {
-                    if (err) {
-                        throw err;
-                    }
-                    else{
-                        userId=(rows[0].user_id).toString;
-                        console.log(userId);
-                        tableName='user_'+userId;
-                        console.log(tableName);
-                        tableName=tableName.toString();
-                    }
-                }
-            );
-            var newTableName=tableName;//为什么一定要newTableName='table_0'才行呢，这样赋值就不行了呢
-            db.query(//动态拼接只能用单引号
-                'CREATE TABLE IF NOT EXISTS '+newTableName+
-                '(arti_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, '+
-                'title VARCHAR(50) NOT NULL, '+
-                'maintext LONGTEXT, '+
-                'time TIMESTAMP)',
-                function (err) {
-                    if (err) {
-                        throw err;
-                    }
-                    else{
-                        console.log("New user's article table has successfully created.")
-                    }
-                }  
-            );
+            
+
+
+            
            
         }
     )

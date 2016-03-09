@@ -16,14 +16,14 @@
     <nav>
       <ul class="navrow">
         <li class="logofont">DataNews Studio</li>
-        <li class="navoption"><a href="#">首页</a></li>
-        <li class="navoption"><a target="_blank" href="../articles/articles.html">精品文章</a></li>
+        <li class="navoption"><a href="../../index/datanews.html">首页</a></li>
+        <li class="navoption"><a target="_blank" href="../../articles/articles.html">精品文章</a></li>
 
         <li class="navoption"><a>关于我们</a></li>
        
-        <li class="navoption"><a target="_blank" href="#mine">我的工作室</a></li>
+        <li class="navoption"><a target="_blank" href="../../myStudio/index/index.html">我的工作室</a></li>
         
-        <li class="regi"><a target="regiWindow" href="../register/regiwindow.html">登录/注册</a></li>
+         <li class="regi" id="regi"><a id="beforeRegi">登录/注册</a></li>
 
       </ul>
       <ul class="dropdown">
@@ -93,34 +93,16 @@
                         <option value="湖北" label="湖北"/>
                     </datalist>
                 </label>
-                <label for="city">
-                    城市/地区
-                    <input list="cityList" id="city" name="city"/>
-                    <datalist id="cityList">
-                        <option value="厦门" label="厦门"/>
-                        <option value="福州" label="福州"/>
-                        <option value="三明" label="三明"/>
-                        <option value="龙岩" label="龙岩"/>
-                        <option value="宁德" label="宁德"/>
-                        <option value="泉州" label="泉州"/>
-                        <option value="漳州" label="漳州"/>
-                        
-                        <option value="襄阳" label="襄阳"/>
-                        <option value="武汉" label="武汉"/>
-                        <option value="宜昌" label="宜昌"/>
-                        <option value="黄石" label="黄石"/>
-                        <option value="荆州" label="荆州"/>
-                        <option value="孝感" label="孝感"/>
-                        <option value="随州" label="随州"/>
-                        <option value="鄂州" label="鄂州"/>
-                        <option value="十堰" label="十堰"/>
-                        <option value="神农架" label="神农架"/>
-                    </datalist>
-                </label>
             </p>
             -->
             <button type="submit" id="submit">确认注册</button>
         </form>
+    </div>
+
+    <div id="changeDiv">
+      <iframe  id="register" name="regiWindow" src="../regiwindow.html" scrolling="no">
+        
+      </iframe>
     </div>
         
 

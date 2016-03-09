@@ -83,18 +83,25 @@ function handleButtonPress(e) {
     htr.open("POST",form.action,false);
     htr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');//设置请求标头，告诉服务器准备接受哪一种数据格式。
     htr.send(formData);
-    alert(htr);
+    //alert(htr);
 }
 
 function handleResponse() {
     if (htr.readyState==4) {
         if ((htr.status>=200&&htr.status<300)||htr.status==304) {
             document.getElementById("sectionContent").innerHTML=htr.responseText;
-            alert("successful");
+            //alert("successful");
         }
         else{
             document.getElementById("sectionContent").innerHTML="Unsuccessfull: "+htr.status;
         }
         
     }
+}
+
+/*********************************登录弹窗****************************************/
+var regiBlock=document.getElementById("changeDiv");
+var regiButton=document.getElementById("beforeRegi");
+regiButton.onclick=function(e){
+    regiBlock.style.setProperty("display","block");
 }

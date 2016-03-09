@@ -189,7 +189,33 @@
 
     
     
+/********************************注册弹窗*******************************************/
     
+    #changeDiv{
+        position: absolute;
+        top:150px;
+        left: 400px;
+        width: 566px;
+        height: 300px;
+        margin: 0px;
+        padding: 0px;
+        display: none;
+        z-index: 100;
+    }
+    #register{
+        position: absolute;
+        top:0px;
+        left: 0px;
+        width: 566px;
+        height: 300px;
+        margin: 0px;
+        padding: 0px;
+        /*display: none;/*使用display:none ，DOM树中就无此元素，其z-index就不会遮挡下面的页面内容*/
+        /*z-index: 100;/*单位是甚？是不是直接传递给子元素？-实际操作说明是直接传递给子元素*/
+        
+        border: thin solid red;
+    }
+
     
     
   /**************************************************************************/
