@@ -53,6 +53,7 @@ function recoverSubColor(e) {
     e.target.style.setProperty("background-color","#9CCD64");
 }
 
+
 /*************************Ajax****************************/
 
 document.getElementById("submit").onclick=handleButtonPress;

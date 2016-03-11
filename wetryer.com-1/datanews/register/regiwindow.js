@@ -24,7 +24,7 @@ window.parent.document.getElementById("changeDiv").style.display="none";
 document.getElementById("mylogin").onclick=handleLogin;
 
 var htr1;
-
+var inputElements1;
 function handleLogin(e) {
     //alert("love");
     e.preventDefault();
@@ -32,7 +32,7 @@ function handleLogin(e) {
     var form1=document.getElementById("idpwform");
     
     var formData1="";
-    var inputElements1=document.getElementsByTagName("input");
+    inputElements1=document.getElementsByTagName("input");
     for (var i=0;i<inputElements1.length;i++) {
         if (inputElements1[i].type!="radio") {
             formData1+=inputElements1[i].name+"="+inputElements1[i].value+"&";
@@ -55,7 +55,7 @@ function handleLogin(e) {
 }
 
 function myResponse() {
-    if (htr1.readyState==4) {
+    if (htr1.readyState==4) {//hr1如果不是全局变量，那它处在外层函数中，为什么不能访问?
         if ((htr1.status>=200&&htr1.status<300)||htr1.status==304) {
             alert("successful");
             window.parent.document.getElementById("regi").innerHTML=htr1.responseText;
@@ -63,6 +63,8 @@ function myResponse() {
             
             var welcomeValue=htr1.responseText;
             localStorage.setItem("welcome",welcomeValue);
+            localStorage.setItem("identity",inputElements1[0].value);
+            console.log(localStorage.getItem("identity"));
         }
         else{
             alert("unsuccessful");
@@ -73,7 +75,4 @@ function myResponse() {
         
     }
 }
-
-
-
 

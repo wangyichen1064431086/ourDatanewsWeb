@@ -210,3 +210,8 @@ function toBrowser1(res,rows) {//定义发送回浏览器数据的函数
 }
 
 /********************为用户数据库添加文章记录******************/
+
+function addUserArti(db,req,res){
+    var identityValue=req.headers.cookie;
+    
+}

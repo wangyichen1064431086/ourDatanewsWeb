@@ -1,7 +1,11 @@
-/**********************±£´æÎÄÕÂµÄAjax********************************/
+/**********************ä¿å­˜æ–‡ç« çš„Ajax********************************/
 document.getElementById("save").onclick=handleButtonPress;
 
 var htr;
+
+var identityValue=localStorage.getItem("identity");
+console.log(identityValue);
+document.cookie=encodeURIComponent("identity")+"="+encodeURIComponent(identityValue);
 
 function handleButtonPress(e) {
     e.preventDefault();
@@ -23,11 +27,12 @@ function handleButtonPress(e) {
     
     var mainText=document.getElementsByTagName("textarea")[0];
     formData+=mainText.name+"="+mainText.value+"&";
-    
+
+
     htr=new XMLHttpRequest();
     htr.onreadystatechange=handleResponse;
     htr.open("POST",form.action,false);
-    htr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');//ÉèÖÃÇëÇó±êÍ·£¬¸æËß·şÎñÆ÷×¼±¸½ÓÊÜÄÄÒ»ÖÖÊı¾İ¸ñÊ½¡£
+    htr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');//è®¾ç½®è¯·æ±‚æ ‡å¤´ï¼Œå‘Šè¯‰æœåŠ¡å™¨å‡†å¤‡æ¥å—å“ªä¸€ç§æ•°æ®æ ¼å¼ã€‚
     htr.send(formData);
 }
 
@@ -43,4 +48,4 @@ function handleResponse() {
     }
 }
 
-//ÒªÍ¨¹ınµÇÂ¼ºó·şÎñÆ÷nodejs¸ø¿Í»§¶Ë·¢ËÍcookie£¬È»ºóÌá½»ÎÄÕÂÊ±ÔÙ°Ñcookie·¢ËÍ¹ıÈ¥£¬È»ºó·şÎñÆ÷nodejsÍ¨¹ıÅĞ¶ÏcookieÀ´Ìí¼Óµ½ÏàÓ¦µÄÓÃ»§Êı¾İ¿â¡£
+//è¦é€šè¿‡nç™»å½•åæœåŠ¡å™¨nodejsç»™å®¢æˆ·ç«¯å‘é€cookieï¼Œç„¶åæäº¤æ–‡ç« æ—¶å†æŠŠcookieå‘é€è¿‡å»ï¼Œç„¶åæœåŠ¡å™¨nodejsé€šè¿‡åˆ¤æ–­cookieæ¥æ·»åŠ åˆ°ç›¸åº”çš„ç”¨æˆ·æ•°æ®åº“ã€‚
