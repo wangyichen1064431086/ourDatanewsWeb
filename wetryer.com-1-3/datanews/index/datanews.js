@@ -1,60 +1,158 @@
+/***********************跨浏览器的事件处理对象************************/
+var EventUtil={
+    addHandler:function(element,type,handler){
+        if (element.addEventListener) {
+            element.addEventListener(type,handler,false);
+        }
+        else if (element.attachEvent) {
+            element.attachEvent("on"+type,handler);
+        }
+        else{
+            element["on"+type]=handler;
+        }
+    },
+    removeHandler:function(element,type,handler){
+        if (element.removeEventListener) {
+            element.removeEventListener(type,handler,false);
+        }
+        else if (element.detachEvent) {
+            element.detachEvent("on"+type,handler);
+        }
+        else{
+            element["on"+type]=null;
+        }
+    },
+    getEvent:function(event){
+        return event?event:window.event;
+    },
+    preventDefault:function(event){
+        if (event.preventDefault) {
+            event.preventDefault();
+        }
+        else{
+            event.returnValue=false;
+        }
+    },
+    getTarget:function(event){
+        return event.target?event.target:event.srcElement;
+    },
+    stopPropagation:function(event){
+        if (event.stopPropagation) {
+            event.stopPropagation();
+        }
+        else{
+            event.cancelBubble=true;
+        }
+    },
+    addClass:function(element,oneclass){//为元素添加样式表
+        if (element.classList) {//仅FireFox3.6+、Chrome支持
+            element.classList.add(oneclass);
+        }
+        else{
+            var classNames=element.className.split(/\s+/);
+            classNames.push(oneclass);
+            element.className=classNames.join(" ");
+        }
+    },
+    removeClass:function(element,oneclass){
+        if (element.classList) {
+            element.classList.remove(oneclass);
+        }
+        else{
+            var classNames=element.className.split(/\s+/);
+            for (var i=0,len=classNames.length;i<len;i++) {
+                if (classNames[i]==oneclass) {
+                    classNames.splice(i,1);
+                    break;
+                }
+            }
+            element.className=classNames.join(" ");
+        }
+    }
+};
+
+
 /**********************************导航栏 纯手写（也可用bootstrap框架的nav）***************************************/
-var navoptions=document.getElementsByClassName("navoption");
-var dropdown=document.getElementsByClassName("dropdown")[0];
-for(var i=0;i<navoptions.length;i++){
-    if (i==2) {
-        navoptions[i].onmouseenter=chColorShowSub;
-        //navoptions[i].onmouseleave=reColorHideSub;
+(function(){
+    var navoptions=document.getElementsByClassName("navoption");
+    var dropdown=document.getElementsByClassName("dropdown")[0];
+    for(var i=0;i<navoptions.length;i++){
+        if (i==2) {
+            navoptions[i].onmouseenter=chColorShowSub;
+            //navoptions[i].onmouseleave=reColorHideSub;
+        }
+        else{
+            navoptions[i].onmouseenter=changeColor;//注意这里不能用onmouseover和onmouseout,因为这样的话其后代元素会单独再触发一遍
+            navoptions[i].onmouseleave=recoverColor;
+        }
     }
-    else{
-        navoptions[i].onmouseenter=changeColor;//注意这里不能用onmouseover和onmouseout,因为这样的话其后代元素会单独再触发一遍
-        navoptions[i].onmouseleave=recoverColor;
+    
+    function chColorShowSub(event) {
+        event=EventUtil.getEvent(event);
+        var target=EventUtil.getTarget(event);
+        target.style.background='#228B22';
+       // dropdown.style.removeProperty('display');//为何不行？？ //dropdown.style.display='none';也不行
+        dropdown.style.setProperty("display","block");
+      
     }
-}
-
-function chColorShowSub(e) {
-    e.target.style.background='#228B22';
-   // dropdown.style.removeProperty('display');//为何不行？？ //dropdown.style.display='none';也不行
-    dropdown.style.setProperty("display","block");
-  
-}
-
-function changeColor(e) {
-    e.target.style.background='#228B22';
-    navoptions[2].style.setProperty("background-color","#9CCD64");
-    dropdown.style.setProperty("display","none");
-}
-
-function recoverColor(e) {
-    e.target.style.removeProperty('background');
-   
-}
-
-if (dropdown.style.display!='none') {
-    dropdown.onmouseleave=reColorHideSub;//从子菜单移走时，该子菜单消失，母标题恢复非触发颜色
-    var dropoptions=document.querySelectorAll(".dropdown>li");
-    for(var j=0;j<dropoptions.length;j++){
-        dropoptions[j].onmouseenter=changeSubColor;
-        dropoptions[j].onmouseleave=recoverSubColor;
+    
+    function changeColor(event){
+        event=EventUtil.getEvent(event);
+        var target=EventUtil.getTarget(event);
+        target.style.background='#228B22';
+        navoptions[2].style.setProperty("background-color","#9CCD64");
+        dropdown.style.setProperty("display","none");
     }
-}
-
-function reColorHideSub(e) {
-
-    navoptions[2].style.removeProperty('background');
-    e.target.style.setProperty("display","none");
-}
-
-function changeSubColor(e) {
-    e.target.style.setProperty("background-color","#228B22");
-}
-
-function recoverSubColor(e) {
-    e.target.style.setProperty("background-color","#9CCD64");
-}
+    
+    function recoverColor(event) {
+        event=EventUtil.getEvent(event);
+        var target=EventUtil.getTarget(event);
+        target.style.removeProperty('background');
+       
+    }
+    
+    if (dropdown.style.display!='none') {
+        dropdown.onmouseleave=reColorHideSub;//从子菜单移走时，该子菜单消失，母标题恢复非触发颜色
+        var dropoptions=document.querySelectorAll(".dropdown>li");
+        for(var j=0,len=dropoptions.length;j<len;j++){
+            dropoptions[j].onmouseenter=changeSubColor;
+            dropoptions[j].onmouseleave=recoverSubColor;
+        }
+    }
+    
+    function reColorHideSub(event) {
+        event=EventUtil.getEvent(event);
+        var target=EventUtil.getTarget(event);
+        navoptions[2].style.removeProperty('background');
+        target.style.setProperty("display","none");
+    }
+    
+    function changeSubColor(event) {
+        event=EventUtil.getEvent(event);
+        var target=EventUtil.getTarget(event);
+        target.style.setProperty("background-color","#228B22");
+    }
+    
+    function recoverSubColor(event) {
+        event=EventUtil.getEvent(event);
+        var target=EventUtil.getTarget(event);
+        target.style.setProperty("background-color","#9CCD64");
+    }
+})();
 
 /***************************检测localStorage的welcome*****************************/
+EventUtil.addHandler(window,"load",function(){
+    if (localStorage.getItem("welcome")) {//已在其他页面登陆，则每个页面都显示用户昵称
+        document.getElementById("regi").innerHTML=localStorage.getItem("welcome");
+    }
+});
 
+EventUtil.addHandler(window,"unload",function(){
+    if (localStorage.getItem("welcome")) {
+        localStorage.removeItem("welcome");
+    }
+});
+/*
 window.onload=function(){
     if (localStorage.getItem("welcome")) {//已在其他页面登陆，则每个页面都显示用户昵称
         document.getElementById("regi").innerHTML=localStorage.getItem("welcome");
@@ -66,7 +164,7 @@ window.onunload=function(){
     if (localStorage.getItem("welcome")) {
         localStorage.removeItem("welcome");
     }
-}
+}*/
 
 
 /***********************************旋转木马效果**********************************************/
@@ -75,10 +173,9 @@ var calContents=new Array();
 var myCalContent=document.getElementById("myCarContent");
 var numBu=calButtons.length;
 
-calContents[0]="<img src='http://pic000.oss-cn-beijing.aliyuncs.com/wetryer/calContents1.png' alt='calContents0'/>";
-calContents[1]="<img src='http://pic000.oss-cn-beijing.aliyuncs.com/wetryer/calContents2.png' alt='calContents1'/>";
-calContents[2]="<img src='http://pic000.oss-cn-beijing.aliyuncs.com/wetryer/calContents3.png' alt='calContents2'/>";
-
+calContents[0]="<a target='_blank' href='../articles/treasureHunt/2/IntroduceofGephi.html'><img src='pic/calContents1.png' alt='calContents0'/></a>";
+calContents[1]="<a target='_blank' href='../articles/treasureHunt/1/Introduce of treasure hunt.html'><img src='pic/calContents2.png' alt='calContents1'/></a>";
+calContents[2]="<img src='pic/calContents3.png' alt='calContents2'/>";
 myCalContent.innerHTML=calContents[0];//初始化旋转木马版块
 calButtons[0].style.setProperty("background-color","#9CCD64");
 
@@ -169,39 +266,56 @@ intervalBu=window.setInterval(//循环切换当前按钮及其对应图片的计
     }
     
 /**********************内容排列区域图标:鼠标放上去，会形成一波光晕******************************/
+(function () {
+    
     var sectionLogos=document.querySelectorAll(".sectionLogo");
    //被z-index遮住的元素鼠标放上去不能感应到该元素？？
     
+    //这里不能用事件委托，因为mouseenter,mouseleave不冒泡（其他鼠标事件都冒泡） 
     for(var i=0;i<sectionLogos.length;i++){
         sectionLogos[i].onmouseenter=addWave;//不能用onmouseover,这里虽然父元素和子元素区域重合，但重合部分默认获取的就是子元素了？？
         sectionLogos[i].onmouseleave=deleteWave;
     }
 
-    function addWave(e) {
-        if (e.target==sectionLogos[0]) {
-            $(".back0").addClass("logoWave");
+    function addWave(event) {
+        event=EventUtil.getEvent(event);
+        var target=EventUtil.getTarget(event);
+        if (target==sectionLogos[0]) {
+            EventUtil.addClass(document.querySelector(".back0"),"logoWave");
+           //document.querySelector(".back0").classList.add("logoWave");
         }
-        else if (e.target==sectionLogos[1]) {
-            $(".back1").addClass("logoWave");
+        else if (target==sectionLogos[1]) {
+            EventUtil.addClass(document.querySelector(".back1"),"logoWave");
+           //document.querySelector(".back1").classList.add("logoWave");
         }
-        else if (e.target==sectionLogos[2]) {
-            $(".back2").addClass("logoWave");
+        else if (target==sectionLogos[2]) {
+            EventUtil.addClass(document.querySelector(".back2"),"logoWave");
+           //document.querySelector(".back2").classList.add("logoWave");
         }
         
     }
     
-    function deleteWave(e){
-         if (e.target==sectionLogos[0]) {
-            $(".back0").removeClass("logoWave");
+    function deleteWave(event){
+        event=EventUtil.getEvent(event);
+        var target=EventUtil.getTarget(event);
+        if (target==sectionLogos[0]) {
+            EventUtil.removeClass(document.querySelector(".back0"),"logoWave");
+            //document.querySelector(".back0").classList.remove("logoWave");
         }
-        else if (e.target==sectionLogos[1]) {
-            $(".back1").removeClass("logoWave");
+        else if (target==sectionLogos[1]) {
+            EventUtil.removeClass(document.querySelector(".back1"),"logoWave");
+            //document.querySelector(".back1").classList.remove("logoWave");
         }
-        else if (e.target==sectionLogos[2]) {
-            $(".back2").removeClass("logoWave");
+        else if (target==sectionLogos[2]) {
+            EventUtil.removeClass(document.querySelector(".back2"),"logoWave");
+            //document.querySelector(".back2").classList.remove("logoWave");
         }
     }
 
+})();
+   
+
+   
 /*********************************登录弹窗****************************************/
 var regiBlock=document.getElementById("changeDiv");
 var regiButton=document.getElementById("beforeRegi");

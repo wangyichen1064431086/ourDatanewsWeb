@@ -1,0 +1,162 @@
+/************************************定义整体准备属性**************************************/
+body{                   /*应用于body元素的CSS样式*/
+	
+	width:100%;     /*CSS尺寸属性，设置段落宽度的CSS属性，可能的值有auto(默认值）、length(绝对长度，用px、cm单位定义）、%（定义记忆父元素宽度的百分比）、inherit规定从父元素继承属性的值*/
+	overflow:hidden;/*CSS定位属性，规定当内容溢出元素框时发生的事情。？*/
+	
+}
+
+
+/*CSS选择器有很多种:1).xxx(选择class="xxx"的所有元素）；2）element(选择所有element元素，eg:P)*/
+
+
+.page{
+	width:100%;
+	height:100%;/*与width类似*/
+	position:absolute;/*CSS定位属性，规定元素的定位类型，可选值有absolute(生成绝对定位的元素，通过left、top、right、bottom属性进行定位*/
+	font-size:100px;/*CSS字体属性，设置字体尺寸*/
+	text-align:center;/*CSS文本属性，规定文本水平对齐方式*/
+}
+
+.page .wrap{
+	height:800px;
+}
+
+.page-current{
+	z-index:1;   /*该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。*/
+}
+.hide{ display:none;}/*CSS定位属性，规定元素应该生成的框的类型，可选值none/block/inline……none为此元素不被显示*/
+
+/*************************************定义每页背景颜色属性*************************************/
+.page-1-1{ background-color:#E0E0E0;}/*CSS背景属性，设置元素背景颜色*/
+.page-2-1{ background-color:#8FBC8F;}
+.page-3-1{ background-color:#00BFFF;}
+.page-4-1{ background-color:#A9A9A9;}
+
+/*************************************定义第一页各图片位置**************************************/
+.page-1-1 .img_1 {
+	height:auto;width:70%;/*宽度是怎么知道的，自己试出来的合适的吗？*/
+	position:absolute;
+	left:50%;/*设置以包含元素的百分比计的左边位置：是指图片的左边缘位置在父元素的位置*/
+	top:0%;
+	margin-left:-210px;/*CSS外边距属性，设置元素左外边距：是指图片的左边缘与其左边缘位置的距离,以左为负、以右为正？*/
+}
+.page-1-1 .img_2 {
+	height:auto;width:11%;
+	position:absolute;
+	left:0%;
+	top:39%;
+}
+.page-1-1 .img_3{
+	height: auto;width: 30%;
+	position:absolute;
+	right:0%;
+	top:20%;
+}
+.page-1-1 .img_4{
+	height:auto;width:90%;
+	position: absolute;
+	left: 50%;
+	margin-left: -45%;
+	top:40%;
+}
+.page-1-1 .img_5{
+	height: auto;width: 95%;
+	position: absolute;
+	left: 50%;
+	margin-left: -47.5%;
+	bottom: 8%;
+}
+
+/***************************************定义第二页各图片位置**********************************************/
+.page-2-1 .img_1{
+	height: auto;width: 100%;
+	position: absolute;
+	left: 0%;
+	top:5%;
+}
+.page-2-1 .img_2{
+	height: auto;width:80%;
+	position: absolute;
+	left: 50%;
+	margin-left: -40%;
+	top: 25%;
+}
+.page-2-1 .img_3{
+	height: auto;width: 90%;
+	position: absolute;
+	left: 50%;
+	margin-left: -45%;
+	bottom: 18%;
+}
+
+/***************************************定义第三页各图片位置--绝对坐标******************************************/
+/*
+.page-3-1 .img_1{
+	height: auto; width: 350px;
+	position:absolute;
+	left:50%;
+	margin-left:-175px;
+	top: 5%;
+}
+.page-3-1 .img_2{
+	height: auto; width:300px;
+	position:absolute;
+	left: 50%;
+	margin-left: -150px;
+	top: 20%;
+	
+}
+.page-3-1 .img_3{
+	height: auto;width:280px;
+	position:absolute;
+	left: 50%;
+	margin-left: -140px;
+	bottom:18%;
+	
+}
+*/
+/***************************************定义第三页各图片位置--百分比坐标******************************************/
+.page-3-1 .img_1{
+	height: auto; width: 100%;
+	position:absolute;
+	left:0%;
+	top: 5%;
+}
+.page-3-1 .img_2{
+	height: auto; width:90%;
+	position:absolute;
+	left: 50%;
+	margin-left: -45%;
+	top: 25%;
+	
+}
+.page-3-1 .img_3{
+	height: auto;width:80%;
+	position:absolute;
+	left: 50%;
+	margin-left: -40%;
+	bottom:15%;
+	
+}
+/*********************************定义第四页各图片位置*********************************************************/
+.page-4-1 .img_1{
+	height: auto;width: 100%;
+	position: absolute;
+	left: 0%;
+	top: 5%;
+}
+.page-4-1 .img_2{
+	height: auto;width: 90%;
+	position: absolute;
+	left: 50%;
+	margin-left: -45%;
+	top: 20%;
+}
+.page-4-1 .img_3{
+	height:auto;width:90%;
+	position: absolute;
+	left:50%;
+	margin-left:-45%;
+	bottom:15%;
+}

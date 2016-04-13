@@ -122,7 +122,7 @@ switch (readGotoValue) {
 
 
 /******************点击导航栏的”精品文章“设置localStorage的readGoto为option0，即从此处进入article页面激活的是新闻资讯*/
-var goodArticle=document.getElementById("goodArticle");
-goodArticle.onclick=function(){
+var myStudio=document.getElementById("myStudio");
+myStudio.onclick=function(){
     localStorage.setItem("readGoto","option0");
 }
