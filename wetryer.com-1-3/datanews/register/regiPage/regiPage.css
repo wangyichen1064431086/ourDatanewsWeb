@@ -166,7 +166,7 @@
 }
 
 #regiForm{
-   position: absolute;
+    position: absolute;
     margin: 0px;
     padding: 0px;
     top: 0px;
@@ -175,20 +175,30 @@
     height:700px;
     
 }
-#regiForm p{
+#regiForm label{
        font: 18px 微软雅黑,serif;
 }
 
-#regiForm input:not(#female):not(#male){
-    height: 24px;/*设为100%会超出父元素*/
+.rect{
+    height: 24px;
     width: 200px;
-    font: 10px 宋体,serif;
+    font: 5px 宋体,serif;
     
-    border: thin solid lightgray;/*带设计圆角、阴影边框*/
-}  
-
-    
-    
+    border: thin solid lightgray;
+    border-radius: 2px;
+}
+#regiForm button{
+     height: 26px;
+     width: 100px;
+     text-align: center;
+     
+     font: 16px 黑体,serif;
+     line-height: 18px;
+     color: white;
+     background-color: #9CCD64;
+     border-radius:2px;
+     outline: none;
+}
 /********************************注册弹窗*******************************************/
     
     #changeDiv{
@@ -210,15 +220,12 @@
         height: 300px;
         margin: 0px;
         padding: 0px;
-        /*display: none;/*使用display:none ，DOM树中就无此元素，其z-index就不会遮挡下面的页面内容*/
-        /*z-index: 100;/*单位是甚？是不是直接传递给子元素？-实际操作说明是直接传递给子元素*/
-        
+      
         border: thin solid red;
     }
+   /*******************************border显隐控制************************************/
 
-    
-    
-  /**************************************************************************/
-     * :not(hr) {
+     *:not(hr):not(.rect){
       border: none !important;/*!important强制提前优先级*/
     }
+    

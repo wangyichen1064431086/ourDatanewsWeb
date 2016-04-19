@@ -46,25 +46,25 @@
             <p>
                 <label for="nickname">
                     昵称
-                    <input  placeholder="英文字母/汉字/数字" autofocus id="nickname" name="nickname"/>
+                    <input class="rect" type="text" placeholder="英文字母/数字" autofocus="autofocus" id="nickname" name="nickname"/>
                 </label>
             </p>
             <p>
                 <label for="identity">
                     帐号
-                    <input  placeholder="用户名/邮箱/手机号" id="identity" name="identity"/>
+                    <input class="rect" placeholder="用户名/邮箱/手机号" id="identity" name="identity"/>
                 </label>
             </p>
             <p>
                 <label for="password">
                     密码
-                    <input type="password" placeholder="6~16位字母/数字" id="password" name="password"/>
+                    <input class="rect" type="password" placeholder="6~16位字母/数字" id="password" name="password"/>
                 </label>
             </p>
             <p>
                 <label for="rePassword">
                     确认密码
-                    <input type="password" placeholder="再次输入上述6~16位字母/数字" id="rePassword" name="rePassword"/>
+                    <input class="rect" type="password" placeholder="再次输入上述6~16位字母/数字" id="rePassword" name="rePassword"/>
                 </label>
            </p>
             <p>
@@ -80,21 +80,10 @@
             <p>
                 <label for="birthDay">
                     出生日期
-                    <input type="date" id="birthDay" name="birthDay"/>
+                    <input  class="rect" type="date" id="birthDay" name="birthDay"/>
                 </label>
             </p>
-            <!--
-            <p>
-                <label for="province">
-                    省份
-                    <input list="provinceList" id="province" name="province"/>
-                    <datalist id="provinceList" name="province">
-                        <option value="福建" label="福建"/>
-                        <option value="湖北" label="湖北"/>
-                    </datalist>
-                </label>
-            </p>
-            -->
+           
             <button type="submit" id="submit">确认注册</button>
         </form>
     </div>
