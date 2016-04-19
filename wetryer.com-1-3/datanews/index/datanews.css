@@ -50,6 +50,7 @@
         font: 32px  "Monotype Corsiva", sans-serif;
         line-height: 50px;/*记住一定得写在font-size之后才有用*/
         color: white;
+         cursor: default;/*改光标形状为默认形状：一个箭头*/
         border:thin solid red;
    }
    .regi{
@@ -110,7 +111,9 @@
         margin-left: 25px;
         
     }
-  
+li a,.navoption{
+        cursor: pointer;/*控制鼠标形状为手型*/
+    }
 
     
     /***********************************旋转木马效果**********************************************/
@@ -199,6 +202,7 @@
         top: 350px;
         width: 100%;
         text-align: center;
+        /*z-index: 10000;*/
         display: none;/*平常显示为none，需要调试查看的时候再显示出来*/
     }
     
@@ -223,6 +227,7 @@
         line-height: 60px;
         font: 20px "微软雅黑",serif;
         color: white;
+        cursor: pointer;
         
         border:thin solid red;
     }

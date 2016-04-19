@@ -12,7 +12,7 @@ body{
     padding: 0px;
     top: 0px;
     left: 0px;
-    height: 150px;
+    height: 200px;
     width: 100%;
 
     border: thin solid red;
@@ -21,9 +21,9 @@ body{
     position: absolute;
     margin: 0px;
     padding: 0px;
-    top: 150px;
+    top: 200px;
     left: 0px;
-    height: 150px;
+    height: 200px;
     width: 100%;
 
     border: thin solid red;
@@ -32,9 +32,9 @@ body{
     position: absolute;
     margin: 0px;
     padding: 0px;
-    top: 300px;
+    top: 400px;
     left: 0px;
-    height: 150px;
+    height: 200px;
     width: 100%;
 
     border: thin solid red;
@@ -71,6 +71,11 @@ body{
     height: 50px;
 
     border: thin solid yellow;
+}
+hr{
+    position: absolute;
+    top: 180px;
+    width: 100%;
 }
 .articleTitle a{
     margin: 10px 0px;
