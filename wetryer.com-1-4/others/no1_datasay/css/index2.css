@@ -1,0 +1,79 @@
+/************************************定义整体准备属性**************************************/
+body{                   /*应用于body元素的CSS样式*/
+	
+	width:100%;     /*CSS尺寸属性，设置段落宽度的CSS属性，可能的值有auto(默认值）、length(绝对长度，用px、cm单位定义）、%（定义记忆父元素宽度的百分比）、inherit规定从父元素继承属性的值*/
+	overflow:hidden;/*CSS定位属性，规定当内容溢出元素框时发生的事情。？*/
+	
+}
+
+
+/*CSS选择器有很多种:1).xxx(选择class="xxx"的所有元素）；2）element(选择所有element元素，eg:P)*/
+
+
+.page{
+	width:100%;
+	height:100%;/*与width类似*/
+	position:absolute;/*CSS定位属性，规定元素的定位类型，可选值有absolute(生成绝对定位的元素，通过left、top、right、bottom属性进行定位*/
+	font-size:100px;/*CSS字体属性，设置字体尺寸*/
+	text-align:center;/*CSS文本属性，规定文本水平对齐方式*/
+	background-color: #FFFFFF;
+}
+
+.page .wrap{
+	height:800px;
+}
+
+.page-current{
+	z-index:1;   /*该属性设置一个定位元素沿 z 轴的位置，z 轴定义为垂直延伸到显示区的轴。如果为正数，则离用户更近，为负数则表示离用户更远。*/
+}
+.hide{ display:none;}/*CSS定位属性，规定元素应该生成的框的类型，可选值none/block/inline……none为此元素不被显示*/
+
+
+/*************************************第1页各图片位置**************************************/
+.object1{
+	height: auto;width: 100%;
+	position: absolute;
+	left: 0%;
+        top: 25%;	
+}
+.object2{
+	height: auto;width: 100%;
+	position: absolute;
+	left: 0%;
+	top:40%;
+}
+.object3{
+	height: auto;width:90%;
+	position: absolute;
+	left: 5%;
+	top: 60%;
+}
+/*************************************第2页各图片位置**************************************/
+.obj1{
+	height: auto;width: 90%;
+	position: absolute;
+	left: 50%;
+	margin-left: -45%;
+	top: 10%;
+}
+.obj2{
+	height: auto;width: 86%;
+	position: absolute;
+	left: 50%;
+	margin-left: -43%;
+	top: 20%;
+}
+.obj3{
+	height: auto;width: 90%;
+	position: absolute;
+	left: 50%;
+	margin-left: -45%;
+	top: 35%;
+}
+.obj4{
+	height: auto;width: 86%;
+	position: absolute;
+	left: 50%;
+	margin-left: -43%;
+	top: 80%;
+}

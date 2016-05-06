@@ -1,0 +1,122 @@
+/*1-1：从上出来 */
+.move_fromtop{
+    -webkit-animation: movefromtop 1s ease 0s 1 normal both running;
+}
+@-webkit-keyframes movefromtop{
+    from{-webkit-transform: translateY(-200%);}
+    to{}
+}
+/*1-2：从左出来 */
+.move_fromleft{
+    -webkit-animation: movefromleft 1s ease 0s 1 normal both running;
+}
+@-webkit-keyframes movefromleft{
+    from{-webkit-transform: translateX(-200%);}
+    to{}
+}
+/*1-3：从右出来*/
+.move_fromright{
+    -webkit-animation: movefromright 1s ease 0s 1 normal both running;
+}
+@-webkit-keyframes movefromright{
+    from{-webkit-transform: translateX(200%);}
+    to{}
+}
+/*1-4:过1s后3DY轴旋转 */
+.move_w12rotateY{
+    -webkit-animation: w12rotateY 2s ease-out 0s both;
+}
+@-webkit-keyframes w12rotateY{
+    0%{opacity:0;-webkit-transform:rotateY(-180deg);}
+    50%{opacity:0;-webkit-transform:rotateY(-180deg);}
+    100%{-webkit-transform: rotateY(0deg);}
+}
+/*1-5:过2s后从下出来*/
+.move_w22frombottom{
+    -webkit-animation: w22frombottom 3s ease 2s both;
+}
+@-webkit-keyframes w22frombottom{
+    from{-webkit-transform: translateY(200%);}
+    to{}
+}
+
+/*2-1:从上出来 */
+.move_fromtop{
+    -webkit-animation: movefromtop 1s ease 0s both;
+}
+@-webkit-keyframes movefromtop{
+    from{-webkit-transform: translateY(-200%);}
+    to{}
+}
+/*2-2:过1s，边出现边2D原地旋转边放大*/
+.move_w12appWrotWzin{
+    -webkit-animation: w12appWrotWzin 2s ease-out 0s both;
+}
+@-webkit-keyframes w12appWrotWzin{
+   /* 0%(-webkit-transform:scale(.1,.1);-webkit-transform: rotate(0deg);)*/
+    0%{-webkit-transform: scale(.1,.1);/*-webkit-transform: rotate(0deg);*/}
+    100%{-webkit-transform: scale(1.1,1.1);/*-webkit-transform: rotate(360deg);*/}
+}
+/*2-3:过2s,3DY轴旋转*/
+.move_w22rotY{
+    -webkit-animation:w22rotY 3s ease-out 0s both;
+}
+@-webkit-keyframes w22rotY{
+    0%{opacity:0;-webkit-transform:rotateY(-180deg);}
+    60%{opacity:0;-webkit-transform:rotateY(-180deg);}
+    100%{-webkit-transform: rotateY(0deg);}
+}
+
+/*3-1,边出现边从上出来*/
+.move_appearWfromtop{
+    -webkit-animation: appearWfromtop 1s ease-out both;
+}
+@-webkit-keyframes appearWfromtop{
+    from{opacity:0;-webkit-transform: translateY(-150%);}
+    to{}
+}
+/*3-2,过一会儿(1s)再从左出来*/
+.move_w12fromleft{
+    -webkit-animation:w12fromleft 2s ease both;
+}
+@-webkit-keyframes w12fromleft{
+    0%{-webkit-transform:translateX(-200%);}
+    50%{-webkit-transform:translateX(-200%);}
+    100%{}
+}
+/*3-3:过一会儿(2s)再从下出来 3-3*/
+.move_w22frombot{
+    -webkit-animation:w22frombot 3s ease both;
+}
+@-webkit-keyframes w22frombot{
+    0%{-webkit-transform:translateY(200%);}
+    66%{-webkit-transform:translateY(200%);}
+    100%{}
+}
+
+/* 4-1:边出现边从左上出来 */
+.move_appWfromlt{
+    -webkit-animation: appWfromlt 1s ease-out both;
+}
+@-webkit-keyframes appWfromlt{
+    from{-webkit-transform: translate(-200%,-200%);opacity:0;}
+    to{}
+}
+/*4-2:过1s边出现边放大 */
+.move_w12appWzin{
+    -webkit-animation: w12appWzin 2s ease-out both;
+}
+@-webkit-keyframes w12appWzin{
+    0%{-webkit-transform: scale(.6,.6);opacity:0;}
+    50%{-webkit-transform: scale(.6,.6);opacity: 0;}
+    100%{-webkit-transform: scale(1.1,1.1);opacity: 1;}
+}
+/*4-3:过一会儿(2s)再从左出来*/
+.move_w22fromleft{
+    -webkit-animation:w22fromleft 3s ease both;
+}
+@-webkit-keyframes w22fromleft{
+    0%{-webkit-transform:translateX(-200%);}
+    60%{-webkit-transform:translateX(-200%);}
+    100%{}
+}

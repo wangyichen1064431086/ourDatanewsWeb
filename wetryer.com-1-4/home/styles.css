@@ -1,0 +1,18 @@
+body{
+        height: 100%;
+      }
+#nav{
+   position: absolute;
+   height: 15%;
+   left: 60%;
+}
+#menu{
+  position: absolute;
+  height: 15%;
+}
+#beian{
+  /*position: absolute;*/
+  text-align:center;
+  color: black;
+  bottom:0;
+}

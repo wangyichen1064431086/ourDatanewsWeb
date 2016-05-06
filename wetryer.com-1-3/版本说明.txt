@@ -1,0 +1,1 @@
+该版本是做完了部分js兼容性和优化处理，做完了的部分包括datanews的index、articles、register的regiwindow部分，接下来要做的是register的regiPage部分。
